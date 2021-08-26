@@ -22,13 +22,13 @@ public class main {
         addressBook1.addEntry(new Entry("Sasuke","Uchiha","1111111111","sasuke@gmail.com"));
         addressBook1.addEntry(new Entry("Kakashi","Hatake","3333333333","kakashi@gmail.com"));
 
-        System.out.println("Choose an Option");
-        System.out.println("1) Add an entry");
-        System.out.println("2) Remove an entry");
-        System.out.println("3) Search for specific entry");
-        System.out.println("4) Print Address Book");
-        System.out.println("5) Delete Book");
-        System.out.println("6) Quit");
+//        System.out.println("Choose an Option");
+//        System.out.println("1) Add an entry");
+//        System.out.println("2) Remove an entry");
+//        System.out.println("3) Search for specific entry");
+//        System.out.println("4) Print Address Book");
+//        System.out.println("5) Delete Book");
+//        System.out.println("6) Quit");
 
 
 
@@ -36,6 +36,13 @@ public class main {
         boolean quit = false;
 
         do {
+//            System.out.println("Choose an Option");
+//            System.out.println("1) Add an entry");
+//            System.out.println("2) Remove an entry");
+//            System.out.println("3) Search for specific entry");
+//            System.out.println("4) Print Address Book");
+//            System.out.println("5) Delete Book");
+//            System.out.println("6) Quit");
             System.out.println("Please choose what you'd like to do with the database (Enter any other # for options): ");
             if (input.hasNextInt()) {
                 choice = input.nextInt();
@@ -65,14 +72,6 @@ public class main {
                             emailAddress = input.next();
                         } while (addressBook1.containsEmail(emailAddress));
                     }
-//                    if(addressBook1.containsEmail(emailAddress)){
-//                        System.out.println("Enter new email address: Cannot enter same email");
-//                        emailAddress = input.next();
-//                        if (addressBook1.containsEmail(emailAddress)){
-//                            System.out.println("Enter new email address: Cannot enter same email");
-//                            emailAddress = input.next();
-//                        }
-//                    }
 
                     addressBook1.addEntry(new Entry(firstName, lastName, phoneNumber, emailAddress));
                     System.out.println("Added new entry!");
