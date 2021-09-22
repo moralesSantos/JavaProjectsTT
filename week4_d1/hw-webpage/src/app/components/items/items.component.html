@@ -1,0 +1,17 @@
+<h2>Charactors</h2>
+<ul class="items">
+    <li *ngFor="let item of items" (click)="onSelect(item)">
+        <span class="badge" >{{item.id}}</span>
+        {{item.name}} | 
+        <i>{{item.power}} </i>
+        <span> | </span>
+        <i>{{item.discription}}</i>
+    </li>
+</ul>
+
+<div *ngIf="selectedItem">
+    <h2>{{selectedItem.name}}</h2>
+    <div><Span>ID:</Span>{{selectedItem.id}}</div>
+    <div><Span>Power:</Span>{{selectedItem.power}}</div>
+    <div><Span>Discription:</Span>{{selectedItem.discription}}</div>
+</div>
