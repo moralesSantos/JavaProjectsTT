@@ -1,6 +1,6 @@
 <h2>Charactors</h2>
 <ul class="items">
-    <li *ngFor="let item of items" (click)="onSelect(item)">
+    <li *ngFor="let item of items" [class.selected]="item === selectedItem" (click)="onSelect(item)">
         <span class="badge" >{{item.id}}</span>
         {{item.name}} | 
         <i>{{item.power}} </i>
@@ -9,9 +9,4 @@
     </li>
 </ul>
 
-<div *ngIf="selectedItem">
-    <h2>{{selectedItem.name}}</h2>
-    <div><Span>ID:</Span>{{selectedItem.id}}</div>
-    <div><Span>Power:</Span>{{selectedItem.power}}</div>
-    <div><Span>Discription:</Span>{{selectedItem.discription}}</div>
-</div>
+<app-items-detail [items]="selectedItem"></app-items-detail>
