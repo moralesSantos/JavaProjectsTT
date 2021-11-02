@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+
+<!--<head th:replace="fragments/fragments :: head"></head>-->
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<div th:replace="fragments/fragments :: navbar" ></div>
+
+<main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Tech Talent Store</h1>
+            <p>This is a small e-commerce application that allows the user to purchase some of a few products that are offered here. </p>
+            <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="card col-md-3 small-product-card"  th:each="product:${products}">
+                <a  th:href="@{/product/{id}(id=${product.getId()})}"><img th:alt="${product.name}" th:src="@{${product.image}}" class="card-img"/></a>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4 th:text="${product.name}"></h4>
+                        <small th:text="${product.getBrand()}"></small>
+                    </div>
+
+<!--            <div class="card col-md-3 small-product-card">-->
+<!--                <a  href=""><img alt="iphone 8"  src="images/iphone8.jpg" class="card-img"/></a>-->
+<!--                <div class="card-body">-->
+<!--                    <div class="card-title">-->
+<!--                        <h4> Iphone 8</h4>-->
+<!--                        <small>for sale</small>-->
+<!--                        <p> A nice brand new iphone 8</p>-->
+<!--                        <p>999</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="card col-md-3 small-product-card">-->
+<!--                <a  href=""><img alt="iphone 8"  src="images/iphone8.jpg" class="card-img"/></a>-->
+<!--                <div class="card-body">-->
+<!--                    <div class="card-title">-->
+<!--                        <h4> Iphone 8</h4>-->
+<!--                        <small>for sale</small>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="card col-md-3 small-product-card">-->
+<!--                <a  href=""><img alt="iphone 8"  src="images/iphone8.jpg" class="card-img"/></a>-->
+<!--                <div class="card-body">-->
+<!--                    <div class="card-title">-->
+<!--                        <h4> Iphone 8</h4>-->
+<!--                        <small>for sale</small>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                    </div>
+                </div>
+        </div>
+    </div>
+</main>
+
+<!--<footer th:replace="fragments/fragments :: footer"></footer>-->
+</body>
+</html>
+
