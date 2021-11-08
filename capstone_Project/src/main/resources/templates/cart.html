@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace = "fragments/fragments :: head">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<div th:replace="fragments/fragments :: navbar"></div>
+<h2>Products</h2>
+<div class="list-group" th:each="product:${cart}">
+  <div class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+<!--      <a class="id" th:href="@{/products/} + ${product.id}">-->
+        <h5>
+            <table id="example" class="table table-bordered" style="width: 100%"r>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.brand}"></td>
+                    <td th:text="${product.Category}"></td>
+                    <td th:text="${product.price}"></td>
+                </tr>
+            </table>
+<!--            <span th:text="${product.key}"></span>-->
+        </h5>
+      </a>
+    </div>
+  </div>
+
+  <div th:if="${#lists.isEmpty(cart)}">
+    <h3>There are no products to show.</h3>
+  </div>
+</div>
+<form th:action="@{/order}" method="get">
+  <button class="btn btn-md btn-primary btn-block" type="Submit">Order!</button>
+</form>
+</body>
+</html>

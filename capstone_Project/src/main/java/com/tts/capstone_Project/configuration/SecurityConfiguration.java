@@ -36,6 +36,7 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/cart").authenticated()
+                .antMatchers("/h2-console/**").permitAll()
                 .and().formLogin()
                 .loginPage("/signin")
                 .loginProcessingUrl("/login")
@@ -43,5 +44,7 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
                 .logoutSuccessUrl("/");
 
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }

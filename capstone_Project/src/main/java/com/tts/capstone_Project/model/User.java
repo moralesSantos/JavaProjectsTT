@@ -3,10 +3,12 @@ package com.tts.capstone_Project.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 import java.util.Map;
 
@@ -21,6 +23,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
+
+    @Length(min=8, message = "Your password must be > 8 char")
+//    @Pattern(regexp = "[^\\s]+", message = "Your password cannot have a space")
+    //TODO():Add constrains for password
     private String password;
 
     @ElementCollection
